@@ -131,7 +131,7 @@ def _get_filenames_and_classes(dataset_dir):
     A list of image file paths, relative to `dataset_dir` and the list of
     subdirectories, representing class names.
   """
-  training = 'training_dataset'
+  training = 'train'
   dataset_main_folder_list = [name for name in os.listdir(dataset_dir) if os.path.isdir(os.path.join(dataset_dir,name))]
   dataset_root = os.path.join(dataset_dir, training)
 
@@ -171,7 +171,7 @@ def _convert_dataset(split_name, filenames, class_names_to_ids, dataset_dir, tfr
       (integers).
     dataset_dir: The directory where the converted datasets are stored.
   """
-  assert split_name in ['train', 'validation']
+  assert split_name in ['train', 'valid']
 
   num_per_shard = int(math.ceil(len(filenames) / float(_NUM_SHARDS)))
 

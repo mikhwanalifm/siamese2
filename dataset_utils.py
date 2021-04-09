@@ -171,7 +171,7 @@ def _convert_dataset(split_name, filenames, class_names_to_ids, dataset_dir, tfr
       (integers).
     dataset_dir: The directory where the converted datasets are stored.
   """
-  assert split_name in ['train11', 'valid11']
+  assert split_name in ['train', 'valid']
 
   num_per_shard = int(math.ceil(len(filenames) / float(_NUM_SHARDS)))
 
@@ -207,7 +207,7 @@ def _convert_dataset(split_name, filenames, class_names_to_ids, dataset_dir, tfr
   sys.stdout.flush()
 
 def _dataset_exists(dataset_dir, _NUM_SHARDS, output_filename):
-  for split_name in ['train11', 'validation11']:
+  for split_name in ['train', 'validation']:
     for shard_id in range(_NUM_SHARDS):
       tfrecord_filename = _get_dataset_filename(
           dataset_dir, split_name, shard_id, output_filename, _NUM_SHARDS)

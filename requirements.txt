@@ -1,5 +1,5 @@
-tensorflow>=1.15.2
-numpy>=1.14
+tensorflow==1.15.2
+numpy==1.18
 scipy>=1.0
 matplotlib
 Pillow
